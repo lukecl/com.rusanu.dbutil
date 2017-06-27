@@ -316,7 +316,7 @@ namespace com.rusanu.DBUtil {
 		private void OnErrorCommand (string line) { }
 
 		private void SetVarCommand (string line) {
-			var regSetVar = new Regex (@"^:setvar\s+(?<name>[\w_-]+)(?:\s+(?<value>[^\s]+))?", RegexOptions.IgnoreCase);
+			var regSetVar = new Regex (@"^:setvar\s+(?<name>[\w_-]+)(?:\s+(?<value>[^\n\r]+))?", RegexOptions.IgnoreCase);
 			MatchCollection matchSetVar = regSetVar.Matches (line);
 			if (1 != matchSetVar.Count) {
 				throw new SqlCmdSetVarSyntaxException (line);
